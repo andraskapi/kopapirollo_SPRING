@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class BasicGameService implements GameService{
+public class BasicGameService implements GameService {
 
     private final Random randomGenerator;
 
     private final List<String> choiceList = new ArrayList<>();
 
     @Autowired
-    public BasicGameService(Random random){
+    public BasicGameService(Random random) {
 
         this.randomGenerator = random;
         choiceList.add("Rock");
@@ -29,30 +29,27 @@ public class BasicGameService implements GameService{
     }
 
     @Override
-    public void gameResult(String choice) {
+    public String gameResult(String choice) {
 
         String compChoice = computerChoice();
 
-        if (choice.equalsIgnoreCase(compChoice) ){
-            System.out.println("DRAW");
-        }
-
-        if (choice.equalsIgnoreCase("Rock") && compChoice.equalsIgnoreCase("Paper")){
-            System.out.println("Computer WINS");
-        } else if (choice.equalsIgnoreCase("Paper") && compChoice.equalsIgnoreCase("Scissors")) {
-            System.out.println("Computer WINS");
-
-        } else if (choice.equalsIgnoreCase("Scissors") && compChoice.equalsIgnoreCase("Rock")) {
-            System.out.println("Computer WINS");
+        if (choice.equalsIgnoreCase(compChoice)) {
+            return "DRAW";
+        } else if (choice.equalsIgnoreCase("Rock") && compChoice.equalsIgnoreCase("Scissors")){
+            return "Player WINS";
+        } else if (choice.equalsIgnoreCase("Scissors") && compChoice.equalsIgnoreCase("Paper")) {
+            return "Player WINS";
+        } else if (choice.equalsIgnoreCase("Paper") && compChoice.equalsIgnoreCase("Rock")) {
+            return "Player WINS";
 
         }else {
-            System.out.println("Player WINS");
+            return "Computer WINS";
         }
+
+
+
     }
-    // ez nagyon ocsmány, de majd átírjuk
-
-
-
+// ez nagyon ocsmány, de legalább nem jó na majd átírjuk
 
 
 }

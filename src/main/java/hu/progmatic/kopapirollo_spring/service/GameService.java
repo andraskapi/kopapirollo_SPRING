@@ -11,7 +11,7 @@ public interface GameService {
 
     String computerChoice();
 
-    void gameResult(String choice);
+    String gameResult(String choice);
 
 
 }
