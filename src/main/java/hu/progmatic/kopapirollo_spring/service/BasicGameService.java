@@ -13,6 +13,8 @@ public class BasicGameService implements GameService {
 
     private final List<String> choiceList = new ArrayList<>();
 
+
+
     @Autowired
     public BasicGameService(Random random) {
 
@@ -28,22 +30,20 @@ public class BasicGameService implements GameService {
         return choiceList.get(randomGenerator.nextInt(choiceList.size()));
     }
 
+
     @Override
     public String gameResult(String choice) {
 
         String compChoice = computerChoice();
 
         if (choice.equalsIgnoreCase(compChoice)) {
-            return "DRAW";
-        } else if (choice.equalsIgnoreCase("Rock") && compChoice.equalsIgnoreCase("Scissors")){
-            return "Player WINS";
-        } else if (choice.equalsIgnoreCase("Scissors") && compChoice.equalsIgnoreCase("Paper")) {
-            return "Player WINS";
-        } else if (choice.equalsIgnoreCase("Paper") && compChoice.equalsIgnoreCase("Rock")) {
-            return "Player WINS";
-
-        }else {
-            return "Computer WINS";
+            return "DRAW" + compChoice;
+        } else if ((choice.equalsIgnoreCase("Rock") && compChoice.equalsIgnoreCase("Scissors")) ||
+                (choice.equalsIgnoreCase("Scissors") && compChoice.equalsIgnoreCase("Paper")) ||
+                (choice.equalsIgnoreCase("Paper") && compChoice.equalsIgnoreCase("Rock"))) {
+            return "Player WINS" + compChoice;
+        } else {
+            return "Computer WINS" + compChoice;
         }
 
 
