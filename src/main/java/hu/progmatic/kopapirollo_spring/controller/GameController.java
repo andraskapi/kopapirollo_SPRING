@@ -34,11 +34,11 @@ public class GameController {
 
     @PostMapping("/play")
     public String showResult(@RequestParam("choice") String choice, Model model){
-        String compChoice = basicGameService.computerChoice();
+
         String result = basicGameService.gameResult(choice);
         model.addAttribute("result", result);
         model.addAttribute("choice",choice);
-        model.addAttribute("compC",compChoice);
+        model.addAttribute("compC",basicGameService.getComputerSChoice());
         return "result";
     }
 
