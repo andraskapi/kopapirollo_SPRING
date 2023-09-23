@@ -23,6 +23,11 @@ public class GameController {
         return "home";
     }
 
+    @GetMapping("/play-again")
+    public String playAgain(){
+        return "redirect:/home";
+    }
+
 
 //    @PostMapping("/play")
 //    public String getChoice(@RequestParam("choice") String choice) {
@@ -32,7 +37,7 @@ public class GameController {
 //        return "redirect:/home";
 //    }
 
-    @PostMapping("/play")
+    @PostMapping({"/play"})
     public String showResult(@RequestParam("choice") String choice, Model model){
 
         String result = basicGameService.gameResult(choice);
@@ -41,6 +46,8 @@ public class GameController {
         model.addAttribute("compC",basicGameService.getComputerSChoice());
         return "result";
     }
+
+
 
 
 
