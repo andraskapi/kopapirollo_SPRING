@@ -37,13 +37,13 @@ public class BasicGameService implements GameService {
         computerSChoice = computerChoice();
 
         if (choice.equalsIgnoreCase(computerSChoice)) {
-            return "DRAW" + computerSChoice;
+            return "DRAW";
         } else if ((choice.equalsIgnoreCase("Rock") && computerSChoice.equalsIgnoreCase("Scissors")) ||
                 (choice.equalsIgnoreCase("Scissors") && computerSChoice.equalsIgnoreCase("Paper")) ||
                 (choice.equalsIgnoreCase("Paper") && computerSChoice.equalsIgnoreCase("Rock"))) {
-            return "Player WINS" + computerSChoice;
+            return "Player WINS";
         } else {
-            return "Computer WINS" + computerSChoice;
+            return "Computer WINS";
         }
 
 
